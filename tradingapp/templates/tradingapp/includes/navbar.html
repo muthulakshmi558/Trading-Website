@@ -1,0 +1,34 @@
+{% load static %}
+
+<nav class="navbar">
+  <!-- Logo -->
+{% if settings and settings.logo %}
+  <img src="{{ settings.logo.url }}" alt="Logo" class="logo-img">
+{% else %}
+  <img src="{% static 'tradingapp/images/logo.png' %}" alt="Default Logo" class="logo-img">
+{% endif %}
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about/">About Us</a></li>
+    <li><a href="/blogs/">Blogs</a></li>
+    <li><a href="/become-a-partner/">Become a Partner</a></li>
+  </ul>
+
+  <!-- User Icon -->
+<div class="user-icon">
+  <a href="/login/">
+    <i class="fas fa-user-circle"></i>
+  </a>
+</div>
+
+
+</nav>
+{% if messages %}
+  <div class="mb-4">
+    {% for message in messages %}
+      <p class="text-green-500 font-semibold">{{ message }}</p>
+    {% endfor %}
+  </div>
+{% endif %}

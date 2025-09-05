@@ -1,0 +1,63 @@
+<section class="min-h-screen bg-black flex items-center justify-center text-white">
+  <div class="bg-gray-900 p-10 rounded-lg w-full max-w-md">
+    <h2 class="text-lime-400 text-3xl font-bold mb-6 text-center">Create Account</h2>
+
+    <form method="POST" novalidate>
+      {% csrf_token %}
+      
+      <!-- Name -->
+      <div class="mb-4">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+        {% for error in form.name.errors %}
+          <p class="text-red-500 text-sm">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <!-- Mobile -->
+      <div class="mb-4">
+        {{ form.mobile_no.label_tag }}
+        {{ form.mobile_no }}
+        {% for error in form.mobile_no.errors %}
+          <p class="text-red-500 text-sm">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <!-- Email -->
+      <div class="mb-4">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {% for error in form.email.errors %}
+          <p class="text-red-500 text-sm">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <!-- Password -->
+      <div class="mb-4">
+        {{ form.password1.label_tag }}
+        {{ form.password1 }}
+        {% for error in form.password1.errors %}
+          <p class="text-red-500 text-sm">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-4">
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+        {% for error in form.password2.errors %}
+          <p class="text-red-500 text-sm">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="w-full bg-lime-400 text-black font-semibold py-2 rounded-md hover:bg-lime-500">
+        Register
+      </button>
+    </form>
+
+    <p class="mt-4 text-center">
+      Already have an account?
+      <a href="{% url 'login' %}" class="text-lime-400 hover:underline">Login Here</a>
+    </p>
+  </div>
+</section>

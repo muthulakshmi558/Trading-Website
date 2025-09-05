@@ -1,0 +1,66 @@
+{% extends "tradingapp/Layout/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-black text-white py-16">
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
+    <!-- Left Content -->
+    <div class="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
+      <h2 class="text-3xl font-bold">{{ settings.knowledge_title }}</h2>
+      <h2 class="text-3xl font-bold text-lime-400">{{ settings.knowledge_highlight }}</h2>
+      <p class="mt-4 text-gray-300">
+        {{ settings.knowledge_description }}
+        <span class="text-lime-400">{{ settings.knowledge_blog_name }}</span> blog
+      </p>
+    </div>
+
+    <!-- Right Image -->
+    <div class="md:w-1/2 flex justify-center relative">
+      {% if settings.home_banner %}
+        <img src="{{ settings.home_banner.url }}" alt="Home Banner" class="rounded-full border-4 border-lime-400 p-2">
+      {% else %}
+        <img src="{% static 'tradingapp/images/home_banner.png' %}" alt="Default" class="rounded-full border-4 border-lime-400 p-2">
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Category Tabs + Posts -->
+<section class="bg-gray-900 py-12">
+  <div class="container mx-auto px-6">
+    <!-- Tabs -->
+    <div class="flex justify-center border border-[#B285C0] rounded-full p-1 mb-8 space-x-4">
+      {% for cat in categories %}
+        <button
+          class="px-6 py-2 rounded-full font-semibold 
+          {% if cat == current_category %} bg-gray-200 text-black {% else %} text-[#B285C0] {% endif %}">
+          {{ cat.name }}
+        </button>
+      {% endfor %}
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {% for post in posts %}
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="h-48 w-full object-cover rounded-t-2xl">
+        <div class="p-4">
+          <p class="text-gray-500 text-sm">{{ post.read_time }} · {{ post.date|date:"d M Y" }}</p>
+          <h3 class="mt-2 font-semibold text-black">{{ post.subtitle }}</h3>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- More Button -->
+    <div class="text-center mt-6">
+      <button class="px-6 py-2 border border-[#B285C0] text-[#B285C0] rounded-full font-semibold">
+        More ⬇
+      </button>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

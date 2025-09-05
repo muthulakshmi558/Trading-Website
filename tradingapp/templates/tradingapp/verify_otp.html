@@ -1,0 +1,13 @@
+{% extends "tradingapp/Layout/base.html" %}
+{% block content %}
+<div class="container py-5 text-center text-white" style="background-color:#0B0C0E;">
+  <h3>Enter OTP</h3>
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="otp" class="form-control w-25 mx-auto my-3" placeholder="Enter OTP">
+    <button type="submit" class="btn px-4 py-2" style="background-color:#C6FF4D; color:#000; font-weight:bold; border-radius:30px;">
+      Verify OTP
+    </button>
+  </form>
+</div>
+{% endblock %}
