@@ -123,6 +123,8 @@ import os
 # Media setup (for uploading images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
