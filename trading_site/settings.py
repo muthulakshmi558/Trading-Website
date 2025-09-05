@@ -10,7 +10,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
+# SECURITY
 SECRET_KEY = 'django-insecure-fy=u##m^r!0gidma0-b$li(t&ip)54e#06cjns%vw^2)o!!s4u'
 DEBUG = False
 
@@ -85,15 +85,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # collectstatic will copy here
 STATICFILES_DIRS = [
-    BASE_DIR / "static",                    # project-level static
-    BASE_DIR / "tradingapp" / "static",    # app-level static
+    BASE_DIR / "tradingapp" / "static",  # app-level static
 ]
 
 # Media files (uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Security for production
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
