@@ -28,7 +28,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',        
     'localhost',         
-    'trading-website-t0k3.onrender.com',  
+    'https://trading-website-1-xzpm.onrender.com',  
 ]
 
 # Application definition
