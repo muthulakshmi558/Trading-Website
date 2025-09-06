@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fy=u##m^r!0gidma0-b$li(t&ip)54e#06cjns%vw^2)o!!s4u'
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "trading-website-1-xzpm.onrender.com"]
 
 
 # Application definition
